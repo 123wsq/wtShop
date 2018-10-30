@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+android {
+    signingConfigs {
+        debug {
+            keyAlias 'qiku'
+            keyPassword 'sm2018'
+            storeFile file('E:/android/wtShop/app/qk.jks')
+            storePassword 'qk2018'
+        }
+    }
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.sm.wtshop.app"
+        minSdkVersion rootProject.ext.versions.minSdkVersion
+        targetSdkVersion rootProject.ext.versions.targetSdkVersion
+        versionCode rootProject.ext.versions.versionCode
+        versionName rootProject.ext.versions.versionName
+
+        //防止65536
+        multiDexEnabled true
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError
+
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+    buildToolsVersion '27.0.3'
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation rootProject.ext.dependencies["junit"]
+    androidTestImplementation rootProject.ext.dependencies["runner"]
+    androidTestImplementation rootProject.ext.dependencies["espresso"]
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    implementation project(':library')
+    implementation rootProject.ext.dependencies["MagicIndicator"]
+}

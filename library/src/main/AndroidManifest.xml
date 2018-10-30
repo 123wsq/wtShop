@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.wsq.library" >
+
+    <application>
+        <!--https图片加载-->
+        <meta-data
+            android:name="com.example.wsq.library.okhttp.ssl.OkHttpGlideModule"
+            android:value="GlideModule" />
+    </application>
+</manifest>

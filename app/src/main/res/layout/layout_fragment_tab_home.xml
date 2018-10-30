@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_white"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"/>
+
+            <TextView
+                android:id="@+id/tv_select_city"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_title_height"
+                android:gravity="center"
+                android:text="选择城市"
+                android:textSize="@dimen/default_text_size"
+                />
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>
